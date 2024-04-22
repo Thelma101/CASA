@@ -4,4 +4,6 @@ const casaController = require('../controllers/casaController');
 
 app.use(express.json());
 
-app.post('/', casaController);
+app.post('/create', casaController.createCasaAccount);
+
+module.exports = app;
