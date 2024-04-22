@@ -9,11 +9,11 @@ exports.withdrawFromCurrentAccount = (req, res) => {
         return res.status(400).send({ message: "Invalid withdrawal amount" });
     }
 
-    // Find the current account by ID
+    // Find the account number by ID
     const account = currentAccounts.find(a => a.id === accountId);
 
     if (!account) {
-        return res.status(404).send({ message: "Current account not found" });
+        return res.status(404).send({ message: " Account number not found" });
     }
 
     if (account.balance < amount) {
