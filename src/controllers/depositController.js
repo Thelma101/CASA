@@ -13,5 +13,4 @@ exports.deposit = async (req, res) => {
             message: error.message
         })
     }
-
 }

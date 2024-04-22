@@ -30,7 +30,7 @@ exports.withdrawal = (req, res) => {
             withdrawn: amount
         });
     } catch (error) {
-        res.status(500).send({ message: "An error occurred, could not withdraw", error: error.message });
+        res.status(500).send({ message: "An error occurred, could not withdraw. Please try again later", error: error.message });
     }
 };
 
