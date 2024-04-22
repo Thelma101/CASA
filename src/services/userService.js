@@ -1,5 +1,13 @@
-const customers = []; // Mock database for storing CIFs
-let customerIdCounter = 100; // Counter to generate unique IDs
+const customerId = []; 
+let cif = 100; 
+
+
+function generateUniqueId() {
+    let id = customerIdCounter;
+    customerIdCounter++;
+    return id.toString();
+  }
+  
 
 exports.createCustomer = async (customerData) => {
     const {
@@ -20,13 +28,13 @@ exports.createCustomer = async (customerData) => {
     } = customerData;
 
     // Basic validation to ensure necessary data is present
-    if (!firstName || !lastName || !DOB || !email) {
+    if (!firstName || !lastName || !biometricId || !DOB || !phoneNumber) {
         throw new Error("Missing required fields");
     }
 
     // Create the new customer CIF
     const newCustomer = {
-        id: customerIdCounter++,
+        id: cif++,
         date,
         biometricId,
         title,

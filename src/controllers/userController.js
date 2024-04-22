@@ -1,5 +1,3 @@
-
-
 const userService = require('../services/userService');
 
 // Controller function to create a new CIF
