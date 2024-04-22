@@ -24,7 +24,7 @@ exports.withdrawFromCurrentAccount = (req, res) => {
     account.balance -= amount;
 
     res.send({
-        message: "Withdrawal successful",
+        message: "Withdrawal successful. Thank you for banking with us",
         balance: account.balance,
         withdrawn: amount
     });
