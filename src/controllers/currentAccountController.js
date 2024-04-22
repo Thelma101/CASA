@@ -14,13 +14,14 @@ exports.createCurrentAccount = async (req, res) => {
                 message: 'Could not create current account'
             });
         }
-
-        const currentAccount = await currentAccountService.createCurrentAccount({ cifId, bvn, firstName, middleName, lastName, DOB, email, phoneNumber, gender });
+        // Create account
+        const currentAccount = await currentAccountService.createCurrentAccount({ cifId, bvn, schemeType });
+        res.body(currentAccount);
     }
     catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Internal Server Error'
+            message: (error.message || 'Something went wrong. Try again')
         });
     }
 
