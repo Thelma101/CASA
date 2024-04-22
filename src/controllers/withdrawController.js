@@ -17,6 +17,7 @@ exports.withdraw = async (req, res) => {
         }
 
         updatedAmount = await currentAccountService.withdraw(Id, amount);
+        res.body({ message: 'Transaction successful', updatedAmount })
     }
     catch (error) {
         return res.status(500).json({ error: 'Could not post transaction', message: error.message });
