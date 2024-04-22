@@ -6,7 +6,6 @@ exports.createCurrentAccount = async (req, res) => {
 
     try {
         const { cifId, bvn, firstName, middleName, lastName, DOB, email, phoneNumber, gender } = req.body;
-        const currentAccount = await currentAccountService.createCurrentAccount({ cifId, bvn, firstName, middleName, lastName, DOB, email, phoneNumber, gender });
 
         // /CIF validation
         const customer = await currentAccountService.getCustomerById(cifId);
@@ -15,6 +14,8 @@ exports.createCurrentAccount = async (req, res) => {
                 message: 'Could not create current account'
             });
         }
+
+        const currentAccount = await currentAccountService.createCurrentAccount({ cifId, bvn, firstName, middleName, lastName, DOB, email, phoneNumber, gender });
     }
     catch (error) {
         console.log(error);
