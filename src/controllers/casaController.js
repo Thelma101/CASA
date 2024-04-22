@@ -91,3 +91,7 @@ exports.deleteCASAAccount = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+// savings account creation input format should be 'SBA', 'CAA'. Not 'savings', 'current'
+// SBA (savings bank account), CAA(cash access account)
