@@ -1,34 +1,6 @@
-// const cifService = require('../services/cifService');
-
-// // Controller function to create a new CIF
-// exports.createCustomer = async (req, res) => {
-//     try {
-//         const { name, email, address } = req.body;
-//         const customer = await cifService.createCustomer(name, email, address);
-//         res.status(201).json(customer);
-//     } catch (error) {
-//         res.status(500).json({ message: error.message });
-//     }
-// };
-
-// // Controller function to get CIF details by ID
-// exports.getCustomer = async (req, res) => {
-//     try {
-//         const customerId = req.params.customerId;
-//         const customer = await cifService.getCustomerById(customerId);
-//         if (!customer) {
-//             return res.status(404).json({ message: 'Customer not found' });
-//         }
-//         res.json(customer);
-//     } catch (error) {
-//         res.status(500).json({ message: error.message });
-//     }
-// };
 
 
-// controllers/cifController.js
-
-const cifService = require('../services/cifService');
+const userService = require('../services/userService');
 
 // Controller function to create a new CIF
 exports.createCustomer = async (req, res) => {
@@ -55,7 +27,7 @@ exports.createCustomer = async (req, res) => {
             ? `${firstName} ${middleName} ${lastName}`
             : `${firstName} ${lastName}`;
 
-        const customer = await cifService.createCustomer({
+        const customerInfo = await userService.createCustomer({
             date,
             biometricId,
             title,
@@ -72,7 +44,7 @@ exports.createCustomer = async (req, res) => {
             countryOfResidence,
         });
 
-        res.status(201).json(customer);
+        res.status(201).json(customerInfo);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
