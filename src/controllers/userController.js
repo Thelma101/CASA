@@ -1,6 +1,6 @@
 const userService = require('../services/userService');
 
-// Controller function to create a new CIF
+// Create a new CIF
 exports.createCustomer = async (req, res) => {
     try {
         const {

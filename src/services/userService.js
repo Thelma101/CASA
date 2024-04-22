@@ -1,4 +1,3 @@
-// Global variables for customer ID and CIF number
 let customerIdCounter = 1; // Define the counter properly
 let cifNumber = 100; // Starting point for CIF numbers
 
@@ -29,7 +28,7 @@ exports.createCustomer = async (customerData) => {
 
     // Basic validation to ensure necessary data is present
     if (!firstName || !lastName || !biometricId || !DOB || !phoneNumber) {
-        throw new Error("Missing required fields"); // Clear error message
+        throw new Error("Missing required fields");
     }
 
     // Create the full name if middleName is optional
