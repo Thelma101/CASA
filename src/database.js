@@ -1,20 +1,20 @@
 // Mock database (customers)
-const customers = [
+const customerDB = [
     {
         id: 1,
         date: "2024-04-25",
         biometricId: "1234567890",
         title: "Mr.",
-        firstName: "John",
-        middleName: "Michael",
-        lastName: "Doe",
-        fullName: "John Michael Doe",
+        firstName: "Thelma",
+        middleName: "",
+        lastName: "Akpata",
+        fullName: "Thelma Akpata",
         DOB: "1990-01-01",
-        email: "john@example.com",
+        email: "thelma@example.com",
         phoneNumber: "1234567890",
         gender: "Male",
         maritalStatus: "Single",
-        countryOfResidence: "USA",
+        countryOfResidence: "Nigeria",
         address: "123 Main St, New York, NY",
         occupation: "Software Engineer"
     },
@@ -31,7 +31,7 @@ const customers = [
         phoneNumber: "9876543210",
         gender: "Female",
         maritalStatus: "Married",
-        countryOfResidence: "Canada",
+        countryOfResidence: "Nigeria",
         address: "456 Maple Ave, Toronto, ON",
         occupation: "Doctor"
     },
@@ -42,14 +42,14 @@ const customers = [
         title: "Dr.",
         firstName: "Michael",
         middleName: "Alan",
-        lastName: "Johnson",
-        fullName: "Michael Alan Johnson",
+        lastName: "Osaigbovo",
+        fullName: "Michael Alan Osaigbovo",
         DOB: "1978-09-30",
-        email: "michael.johnson@example.com",
+        email: "michael.osas@example.com",
         phoneNumber: "8765432109",
         gender: "Male",
         maritalStatus: "Married",
-        countryOfResidence: "UK",
+        countryOfResidence: "Nigeria",
         address: "789 Oak St, London, UK",
         occupation: "Teacher"
     },
@@ -123,4 +123,4 @@ const customers = [
     }
 ];
 
-module.exports = customers;
+module.exports = customerDB;
