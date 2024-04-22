@@ -2,9 +2,10 @@ const express = require('express');
 const app = express.Router();
 const userController = require('../controllers/userController');
 
-app.post('/create', userController.createCustomer);
+app.post('/createSBA', userController.createCustomer);
+app.post('/createCAA', userController.createCustomer);
 
-app.get('/', userController.getAllCustomers);
+app.get('/:id', userController.getAllCustomers);
 
 app.get('/:id', userController.getCustomerById);
 
