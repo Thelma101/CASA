@@ -2,32 +2,36 @@ const customerAccounts = []; // Mock database for current accounts
 
 // Withdraw from customer Account
 exports.withdrawal = (req, res) => {
-    const accountId = req.params.id;
-    const { amount } = req.body;
+    try {
+        const accountId = req.params.id;
+        const { amount } = req.body;
 
-    if (!amount || amount <= 0) {
-        return res.status(400).send({ message: "Invalid withdrawal amount" });
+        if (!amount || amount <= 0) {
+            return res.status(400).send({ message: "Invalid withdrawal amount" });
+        }
+
+        // Find the account number by ID
+        const account = currentAccounts.find(a => a.id === accountId);
+
+        if (!account) {
+            return res.status(404).send({ message: " Account number not found" });
+        }
+
+        if (account.balance < amount) {
+            return res.status(400).send({ message: "Insufficient balance" });
+        }
+
+        // Deduct the amount from the account balance
+        account.balance -= amount;
+
+        res.send({
+            message: "Withdrawal successful. Thank you for banking with us",
+            balance: account.balance,
+            withdrawn: amount
+        });
+    } catch (error) {
+        res.status(500).send({ message: "An error occurred, could not withdraw", error: error.message });
     }
-
-    // Find the account number by ID
-    const account = currentAccounts.find(a => a.id === accountId);
-
-    if (!account) {
-        return res.status(404).send({ message: " Account number not found" });
-    }
-
-    if (account.balance < amount) {
-        return res.status(400).send({ message: "Insufficient balance" });
-    }
-
-    // Deduct the amount from the account balance
-    account.balance -= amount;
-
-    res.send({
-        message: "Withdrawal successful. Thank you for banking with us",
-        balance: account.balance,
-        withdrawn: amount
-    });
 };
 
 
