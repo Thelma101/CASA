@@ -43,11 +43,11 @@ exports.createCustomer = async (req, res) => {
             DOB,
             email,
             phoneNumber,
+            address,
+            occupation,
             gender,
             maritalStatus,
             countryOfResidence,
-            address,
-            occupation,
         } = req.body;
 
         // Concatenate full name if middleName is present
@@ -60,16 +60,16 @@ exports.createCustomer = async (req, res) => {
             biometricId,
             title,
             firstName,
-            fullName,
+            middleName,
             lastName,
             DOB,
             email,
             phoneNumber,
+            address,
+            occupation,
             gender,
             maritalStatus,
             countryOfResidence,
-            address,
-            occupation,
         });
 
         res.status(201).json(customer);
