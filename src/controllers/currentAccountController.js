@@ -8,11 +8,11 @@ exports.createCurrentAccount = async (req, res) => {
         const { cifId, bvn, firstName, middleName, lastName, DOB, email, phoneNumber, gender } = req.body;
         const currentAccount = await currentAccountService.createCurrentAccount({ cifId, bvn, firstName, middleName, lastName, DOB, email, phoneNumber, gender });
 
-        const customer = await currentAccountService.createCustomer({ cifId, bvn, firstName, middleName, lastName, DOB, email, phoneNumber, gender });
-
+        // /CIF validation
+        const customer = await currentAccountService.getCustomerById(cifId);
         if (!customer) {
             return res.status(400).json({
-                message: 'Customer not created'
+                message: 'Could not create current account'
             });
         }
     }
