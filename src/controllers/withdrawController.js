@@ -1,38 +1,50 @@
-const customerAccounts = []; // Mock database for current accounts
+// const { v4: uuidv4 } = require('uuid'); // Library for generating unique transaction IDs
+const crypto = require('crypto');
 
-// Withdraw from customer Account
 exports.withdrawal = (req, res) => {
     try {
         const accountId = req.params.id;
         const { amount } = req.body;
 
+        // Validate withdrawal amount
         if (!amount || amount <= 0) {
-            return res.status(400).send({ message: "Invalid withdrawal amount" });
+            return res.status(400).json({ message: "Invalid withdrawal amount" });
         }
 
-        // Find the account number by ID
-        const account = currentAccounts.find(a => a.id === accountId);
+        // Find the account by ID
+        const account = customerAccounts.find(a => a.id === accountId);
 
         if (!account) {
-            return res.status(404).send({ message: " Account number not found" });
+            return res.status(404).json({ message: "Account not found" });
         }
 
+        // Check for sufficient balance
         if (account.balance < amount) {
-            return res.status(400).send({ message: "Insufficient balance" });
+            return res.status(400).json({ message: "Insufficient balance" });
         }
 
-        // Deduct the amount from the account balance
+        // Deduct the withdrawal amount from the account balance
         account.balance -= amount;
 
-        res.send({
-            message: "Withdrawal successful. Thank you for banking with us",
+        // Generate a unique transaction ID for this withdrawal
+        const transactionId = uuidv4(); // Using UUID to generate a unique ID
+
+        // Respond with the unique transaction ID and success message
+        return res.status(200).json({
+            message: "Withdrawal successful. Thank you for banking with us.",
+            transactionId: transactionId,
             balance: account.balance,
             withdrawn: amount
         });
     } catch (error) {
-        res.status(500).send({ message: "An error occurred, could not withdraw. Please try again later", error: error.message });
+        // Generic error response with unique error ID
+        return res.status(500).json({
+            message: "An error occurred during withdrawal. Please try again later.",
+            error: error.message
+        });
     }
 };
+
 
 
 // const currentAccountController = require('./currentAccountController');
