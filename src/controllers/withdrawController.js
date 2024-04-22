@@ -1,6 +1,6 @@
-const currentAccounts = []; // Mock database for current accounts
+const customerAccounts = []; // Mock database for current accounts
 
-// Withdraw from Current Account
+// Withdraw from customer Account
 exports.withdrawFromCurrentAccount = (req, res) => {
     const accountId = req.params.id;
     const { amount } = req.body;
