@@ -1,4 +1,4 @@
-// const { v4: uuidv4 } = require('uuid'); // Library for generating unique transaction IDs
+// const { v4: uuidv4 } = require('uuid');
 const crypto = require('crypto');
 
 exports.withdrawal = (req, res) => {
@@ -27,7 +27,7 @@ exports.withdrawal = (req, res) => {
         account.balance -= amount;
 
         // Generate a unique transaction ID for this withdrawal
-        const transactionId = uuidv4(); // Using UUID to generate a unique ID
+        const transactionId = () => crypto.randomBytes(8).toString("hex");
 
         // Respond with the unique transaction ID and success message
         return res.status(200).json({
