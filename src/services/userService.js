@@ -1,6 +1,5 @@
-// services/cifService.js
 const customers = []; // Mock database for storing CIFs
-let customerIdCounter = 1; // Counter to generate unique IDs
+let customerIdCounter = 100; // Counter to generate unique IDs
 
 exports.createCustomer = async (customerData) => {
     const {
