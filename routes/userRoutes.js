@@ -1,14 +1,14 @@
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 const userController = require('../controllers/userController');
 
-app.post('/createSBA', userController.createCustomer);
-app.post('/createCAA', userController.createCustomer);
+router.post('/createSBA', userController.createCustomer);
+router.post('/createCAA', userController.createCustomer);
 
-app.get('/:id', userController.getAllCustomers);
+router.get('/:id', userController.getAllCustomers);
 
-app.get('/:id', userController.getCustomerById);
+router.get('/:id', userController.getCustomerById);
 
-app.put('/:id', userController.updateCustomer);
+router.put('/:id', userController.updateCustomer);
 
-app.delete('/:id', userController.deleteCustomer);
+router.delete('/:id', userController.deleteCustomer);
