@@ -1,7 +1,9 @@
-const express = require ('express');
-const app =  express.Router();
-const currentAccountController = require('../controllers/currentAccountController');
-const currentAccountService = require('../services/currentAccountService');
+const express = require('express');
+const router = express.Router();
 
+const { createCurrentAccount } = require('../controllers/currentAccountController');
 
-app.post('/create', currentAccountController.createCurrentAccount);
+router.post('/createCAA', createCurrentAccount);
+
+module.exports = router;
+

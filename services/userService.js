@@ -1,11 +1,11 @@
-let customerIdCounter = 1; // Define the counter properly
-let cifNumber = 100; // Starting point for CIF numbers
+let customerIdCounter = 1; 
+let cifNumber = 100; 
 
 // Generate a unique customer ID
 function generateUniqueId() {
     let id = customerIdCounter;
-    customerIdCounter++; // Increment the counter to ensure uniqueness
-    return id.toString(); // Return as a string for consistency
+    customerIdCounter++; 
+    return id.toString(); 
 }
 
 exports.createCustomer = async (customerData) => {
@@ -36,7 +36,7 @@ exports.createCustomer = async (customerData) => {
 
     // Create the new customer CIF with a unique ID
     const newCustomer = {
-        id: cifNumber++, // Increment the CIF number to ensure unique IDs
+        id: cifNumber++, 
         date,
         biometricId,
         title,
@@ -56,5 +56,5 @@ exports.createCustomer = async (customerData) => {
     // Store the new CIF in the mock database
     customers.push(newCustomer);
 
-    return newCustomer; // Return the newly created CIF
+    return newCustomer; 
 };

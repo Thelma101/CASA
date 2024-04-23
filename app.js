@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 // const app = express.Router();
 
-const userRoutes = require('./routes/userRoutes');
-const currentAccountRoutes = require('./routes/currentAccountRoutes');
-const savingsAccountsRoutes = require('./routes/savingsAccountsRoutes');
+const userRoutes = require('../routes/userRoutes');
+const currentAccountRoutes = require('../routes/currentAccountRoutes');
+const savingsAccountsRoutes = require('../routes/savingsAccountsRoutes');
 
 
 app.use(express.json());
