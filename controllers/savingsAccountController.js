@@ -1,5 +1,5 @@
 const savingsAccountService = require('../services/savingsAccountService');
-const savingsAccountRoutes = require('../routes/savingsAccountRoutes');
+// const savingsAccountRoutes = require('../routes/savingsAccountRoutes');
 
 
 exports.createSavingsAccount = async (req, res) => {

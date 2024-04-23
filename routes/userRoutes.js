@@ -4,8 +4,8 @@ const userController = require('../controllers/userController');
 const currentAccountController = require('../controllers/currentAccountController');
 const savingsAccountController = require('../controllers/savingsAccountController');
 
-router.post('/createSBA', savingsAccountController);
-router.post('/createCAA', currentAccountController);
+router.post('/createCAA', createCurrentAccount);
+router.post('/createSBA', createCurrentAccount);
 
 // router.get('/:id', userController.getAllCustomers);
 
