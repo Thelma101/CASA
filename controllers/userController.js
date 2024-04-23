@@ -5,7 +5,7 @@ exports.createCustomer = async (req, res) => {
     try {
         const {
             date,
-            biometricId,
+            bvn,
             title,
             firstName,
             middleName,
@@ -27,7 +27,7 @@ exports.createCustomer = async (req, res) => {
 
         const customerInfo = await userService.createCustomer({
             date,
-            biometricId,
+            bvn,
             title,
             firstName,
             middleName,
