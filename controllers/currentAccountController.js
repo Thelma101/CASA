@@ -5,7 +5,7 @@ const currentAccountRoutes = require('../routes/currentAccountRoutes');
 exports.createCurrentAccount = async (req, res) => {
 
     try {
-        const { cifId, bvn, firstName, middleName, lastName, DOB, email, phoneNumber, gender } = req.body;
+        const { cifId, BVN, firstName, middleName, lastName, DOB, email, phoneNumber, gender } = req.body;
 
         // /CIF validation
         const customer = await currentAccountService.getCustomerById(cifId);
@@ -15,7 +15,7 @@ exports.createCurrentAccount = async (req, res) => {
             });
         }
         // Create account
-        const currentAccount = await currentAccountService.createCurrentAccount({ cifId, bvn, schemeType });
+        const currentAccount = await currentAccountService.createCurrentAccount({ cifId, BVN, schemeType });
         res.body(currentAccount);
     }
     catch (error) {
