@@ -1,8 +1,10 @@
 const express = require('express');
+// import express from 'express';
+
 const app = express();
 // const app = express.Router();
 
-const userRoutes = require('../routes/userRoutes');
+const userRoutes = require('./routes/userRoutes');
 const currentAccountRoutes = require('../routes/currentAccountRoutes');
 const savingsAccountsRoutes = require('../routes/savingsAccountsRoutes');
 
